@@ -1,0 +1,144 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px*/
+}
+
+/* 'Nunito', sans-serif; */
+/* 'Josefin Sans', sans-serif; */
+
+/* Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/* Header */
+header {
+    height: 25rem;
+    background-color: rgb(20,20,20);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+nav {
+    height: 5.5rem;
+    background-color: black
+}
+
+/* Section */
+section {
+    background-image: url('../images/bg.jpeg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.section--container {
+    width: 90%;
+    margin-top: 3rem;
+
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: auto 25%;
+}
+
+/* Section left part */
+main {
+    background-color: white;
+    grid-row: 1/-1;
+    grid-column: 1/2;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.title--container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title--directory {
+    font-size: 3.2rem;
+    padding: 2.5rem 2.5rem;
+}
+
+.title--route {
+    font-size: 1.4rem;
+    padding: 2.5rem 2.5rem;
+}
+
+.sorting--container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid rgba(192, 189, 189,.5); 
+    border-left: none;
+    border-right: none;
+
+    padding: 1rem 0rem;
+    margin: 0rem 2rem;
+}
+
+.sorting--label {
+    font-size: 1.6rem;
+}
+
+.sorting--select {
+    padding: 1rem;
+    font-size: 1.4rem;
+    padding-right: 7rem
+}
+
+.items--container {
+    padding: 3.5rem 2rem;
+    padding-bottom: 0;
+    flex-grow : 1;
+
+    display: grid;
+    grid-template-rows: repeat(2,auto);
+    grid-template-columns: repeat(4,auto);
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 1rem;
+}
+
+.items--item {
+    border: 1px solid rgba(192, 189, 189,.5); 
+}
+
+/* Section right part */
+aside {
+    display: grid;
+    grid-template-rows: 8rem repeat(2,20rem) repeat(2,15rem);
+    grid-gap: 3rem;
+}
+
+.aside--box-1 {
+    background-color: white;
+    grid-row: 1/2;
+}
+
+.aside--box-2 {
+    background-color: white;
+    grid-row: 2/3;
+}
+
+.aside--box-3 {
+    background-color: white;
+    grid-row: 3/4;
+}
+
+.aside--box-4 { 
+    background-color: white;
+    grid-row: 4/5;
+}
+
+.aside--box-5 {
+    background-color: white;
+    grid-row: 5/6;
+}
