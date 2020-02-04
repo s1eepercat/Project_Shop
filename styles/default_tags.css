@@ -1,0 +1,37 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Overpass', sans-serif;
+    font-size: 62.5%; 
+}
+
+/* Basic reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+h2 {
+    font-size: 3.2rem;
+    font-weight: 400;
+}
+
+label {
+    font-size: 1.6rem;
+}
+
+select, option {
+    font-size: 1.2rem !important;
+}
+
+a, p {
+    font-size: 1.2rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+

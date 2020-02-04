@@ -1,0 +1,139 @@
+/* Header */
+.header__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    height: 20rem;
+    background-color: rgb(20,20,20);
+}
+
+.header__nav {
+    height: 6rem;
+    background-color: black
+}
+
+/* Shop */
+.shop__outer {
+    display: flex;
+    justify-content: center;
+
+    background-image: url('../images/bg.jpeg');
+    background-size: cover;
+}
+
+.shop__inner {
+    display: grid;
+    grid-gap: 3rem;
+    grid-template-columns: auto 25%;
+
+    width: 90%;
+    margin-top: 2.5rem;
+}
+
+/* Shop left part */
+.shop__left {
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+
+    grid-row: 1/-1;
+    grid-column: 1/2;
+}
+
+.title__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 1rem;
+}
+
+.title__directory {
+    padding: 2.5rem 2rem;
+}
+
+.title__route {
+    display: flex;
+
+    padding: 2.5rem 2rem;
+    padding-top: 3rem;
+}
+
+.sorting__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid rgba(192, 189, 189,.5); 
+    border-left: none;
+    border-right: none;
+
+    padding: 1rem 0rem;
+    margin: 0rem 2rem;
+}
+
+.sorting__select {
+    padding: .7rem;
+    padding-right: 7rem;
+    border: 1px solid rgba(192, 189, 189,.5); 
+    outline: none;
+}
+
+.items__container {
+    display: grid;
+    grid-template-rows: repeat(2,auto);
+    grid-template-columns: repeat(4,auto);
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 1rem;
+
+    padding: 3.5rem 2rem;
+    padding-bottom: 0;
+    flex-grow : 1;
+}
+
+.items__item {
+    border: 1px solid rgba(192, 189, 189,.5); 
+}
+
+.items__figure {
+    background-color: rgb(242,240,240);
+    min-height: 50%;
+    height: 65%;
+}
+
+/* Shop right part */
+.shop__right {
+    display: grid;
+    grid-template-rows: 8rem repeat(2,20rem) repeat(2,15rem);
+    grid-gap: 3rem;
+
+    grid-row: 1/-1;
+    grid-column: 2/3;
+}
+
+.aside__box-1 {
+    background-color: white;
+    grid-row: 1/2;
+}
+
+.aside__box-2 {
+    background-color: white;
+    grid-row: 2/3;
+}
+
+.aside__box-3 {
+    background-color: white;
+    grid-row: 3/4;
+}
+
+.aside__box-4 { 
+    background-color: white;
+    grid-row: 4/5;
+}
+
+.aside__box-5 {
+    background-color: white;
+    grid-row: 5/6;
+}
