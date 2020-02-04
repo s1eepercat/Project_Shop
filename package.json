@@ -19,5 +19,8 @@
   "homepage": "https://github.com/s1eepercat/Project_Shop#readme",
   "devDependencies": {
     "live-server": "^1.2.1"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }

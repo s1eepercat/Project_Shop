@@ -1,7 +1,7 @@
 html {
     box-sizing: border-box;
     font-family: 'Overpass', sans-serif;
-    font-size: 62.5%; /* 1rem = 10px*/
+    font-size: 62.5%; 
 }
 
 /* Basic reset */
