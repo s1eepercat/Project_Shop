@@ -1,5 +1,3 @@
-@supports (display: grid) {
-
 /* Header */
 .header__container {
     display: flex;
@@ -16,32 +14,30 @@
 }
 
 /* Shop */
-.shop__outer {
-    display: flex;
-    justify-content: center;
-
+.shop__container {
     background-image: url('../images/bg.jpeg');
     background-size: cover; 
 }
 
-.shop__inner {
-    margin-top: 2.5rem;
+.shop__content {
+    padding-top: 2.5rem;
+    margin: 0 auto;
+    
     width: 90%;
+    height: 90rem;
 
-    display: grid;
-    grid-gap: 3rem;
-    grid-template-columns: auto 25%;
+    display: flex;
+    justify-content: space-between;
 }
 
 /* Shop left part */
 .shop__left {
+    width: 73%;
+
     display: flex;
     flex-direction: column;
 
     background-color: white;
-
-    grid-row: 1/-1;
-    grid-column: 1/2;
 }
 
 .title__container {
@@ -77,26 +73,29 @@
 }
 
 .sorting__select {
+    display: flex;
+    justify-content: space-between;
+    width: 20rem;
     padding: .7rem;
-    padding-right: 7rem;
     border: 1px solid rgba(192, 189, 189,.5); 
     outline: none;
 }
 
 .items__container {
-    display: grid;
-    grid-template-rows: repeat(2,auto);
-    grid-template-columns: repeat(4,auto);
-    grid-row-gap: 1.5rem;
-    grid-column-gap: 1rem;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100%;
 
     padding: 3.5rem 2rem;
     padding-bottom: 0;
-    flex-grow : 1;
 }
 
 .items__item {
     border: 1px solid rgba(192, 189, 189,.5);
+    width: 24%;
+    height: 49%;
+
 }
 
 .items__figure {
@@ -107,12 +106,11 @@
 
 /* Shop right part */
 .shop__right {
-    display: grid;
-    grid-template-rows: 8rem repeat(2,20rem) repeat(2,15rem);
-    grid-gap: 3rem;
+    width: 25%;
 
-    grid-row: 1/-1;
-    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .shop__right > * {
@@ -120,23 +118,13 @@
 }
 
 .aside__box-1 {
-    grid-row: 1/2;
+    height: 8rem;
 }
 
-.aside__box-2 {
-    grid-row: 2/3;
+.aside__box-2, .aside__box-3 {
+    height: 20rem;
 }
 
-.aside__box-3 {
-    grid-row: 3/4;
-}
-
-.aside__box-4 { 
-    grid-row: 4/5;
-}
-
-.aside__box-5 {
-    grid-row: 5/6;
-}
-
+.aside__box-4, .aside__box-5 { 
+    height: 15rem;
 }
