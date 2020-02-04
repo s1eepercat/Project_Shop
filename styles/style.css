@@ -1,12 +1,10 @@
 html {
     box-sizing: border-box;
+    font-family: 'Overpass', sans-serif;
     font-size: 62.5%; /* 1rem = 10px*/
 }
 
-/* 'Nunito', sans-serif; */
-/* 'Josefin Sans', sans-serif; */
-
-/* Reset */
+/* Basic reset */
 *,
 *::before,
 *::after {
@@ -16,63 +14,70 @@ html {
 }
 
 /* Header */
-header {
-    height: 25rem;
-    background-color: rgb(20,20,20);
+.header__container {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
+    height: 20rem;
+    background-color: rgb(20,20,20);
 }
 
-nav {
-    height: 5.5rem;
+.header__nav {
+    height: 6rem;
     background-color: black
 }
 
-/* Section */
-section {
-    background-image: url('../images/bg.jpeg');
-    background-size: cover;
+/* Shop */
+.shop__outer {
     display: flex;
     justify-content: center;
+
+    background-image: url('../images/bg.jpeg');
+    background-size: cover;
 }
 
-.section--container {
-    width: 90%;
-    margin-top: 3rem;
-
+.shop__inner {
     display: grid;
-    grid-gap: 30px;
+    grid-gap: 3rem;
     grid-template-columns: auto 25%;
+
+    width: 90%;
+    margin-top: 2.5rem;
 }
 
-/* Section left part */
-main {
-    background-color: white;
-    grid-row: 1/-1;
-    grid-column: 1/2;
-
+/* Shop left part */
+.shop__left {
     display: flex;
     flex-direction: column;
+
+    background-color: white;
+
+    grid-row: 1/-1;
+    grid-column: 1/2;
 }
 
-.title--container {
+.title__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    padding-top: 1rem;
 }
 
-.title--directory {
+.title__directory {
     font-size: 3.2rem;
-    padding: 2.5rem 2.5rem;
+    font-weight: 400;
+    padding: 2.5rem 2rem;
 }
 
-.title--route {
-    font-size: 1.4rem;
-    padding: 2.5rem 2.5rem;
+.title__route {
+    font-size: 1.2rem;
+    padding: 2.5rem 2rem;
+    padding-top: 3rem;
 }
 
-.sorting--container {
+.sorting__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -85,60 +90,70 @@ main {
     margin: 0rem 2rem;
 }
 
-.sorting--label {
+.sorting__label {
     font-size: 1.6rem;
 }
 
-.sorting--select {
-    padding: 1rem;
-    font-size: 1.4rem;
-    padding-right: 7rem
+.sorting__select {
+    font-size: 1.2rem;
+    padding: .7rem;
+    padding-right: 7rem;
+    border: 1px solid rgba(192, 189, 189,.5); 
 }
 
-.items--container {
-    padding: 3.5rem 2rem;
-    padding-bottom: 0;
-    flex-grow : 1;
-
+.items__container {
     display: grid;
     grid-template-rows: repeat(2,auto);
     grid-template-columns: repeat(4,auto);
     grid-row-gap: 1.5rem;
     grid-column-gap: 1rem;
+
+    padding: 3.5rem 2rem;
+    padding-bottom: 0;
+    flex-grow : 1;
 }
 
-.items--item {
+.items__item {
     border: 1px solid rgba(192, 189, 189,.5); 
 }
 
-/* Section right part */
-aside {
+.items__figure {
+    background-color: rgb(242,240,240);
+    min-height: 50%;
+    height: 65%;
+}
+
+/* Shop right part */
+.shop__right {
     display: grid;
     grid-template-rows: 8rem repeat(2,20rem) repeat(2,15rem);
     grid-gap: 3rem;
+
+    grid-row: 1/-1;
+    grid-column: 2/3;
 }
 
-.aside--box-1 {
+.aside__box-1 {
     background-color: white;
     grid-row: 1/2;
 }
 
-.aside--box-2 {
+.aside__box-2 {
     background-color: white;
     grid-row: 2/3;
 }
 
-.aside--box-3 {
+.aside__box-3 {
     background-color: white;
     grid-row: 3/4;
 }
 
-.aside--box-4 { 
+.aside__box-4 { 
     background-color: white;
     grid-row: 4/5;
 }
 
-.aside--box-5 {
+.aside__box-5 {
     background-color: white;
     grid-row: 5/6;
 }
