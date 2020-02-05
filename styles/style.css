@@ -58,25 +58,16 @@
 }
 
 .items__container {
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-flow: row wrap;
-    
     padding: 3rem 1rem 0 1rem;
 }
 
 .items__content {
     display: flex;
-    -webkit-box-flex: 1;
-    flex: 1 1 auto;
     flex-wrap: wrap;
 }
 
 .items__item {
     padding: 1rem;
-
-    -webkit-box-flex: 0;
     flex: 0 1 20%;
 }
 
