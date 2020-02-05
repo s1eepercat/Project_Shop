@@ -8,6 +8,12 @@
     background-color: rgb(20,20,20);
 }
 
+@media only screen and (max-width: 400px) {
+    .header__container {
+        height: 6rem;
+    }
+}
+
 .header__nav {
     height: 6rem;
     background-color: black
@@ -35,21 +41,21 @@
     } 
 } 
 
+@media only screen and (max-width: 400px) {
+    .shop__content {
+      width: 100%;
+      padding-top: 0;
+    } 
+} 
+
 /* Shop left part */
 .shop__left {
-    width: 73%;
-
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     background-color: white;
 }
-
-@media only screen and (max-width: 1000px) {
-    .shop__left {
-      width: 100%;
-    } 
-} 
 
 .title__container {
     display: flex;
@@ -93,26 +99,22 @@
 }
 
 .items__container {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 100%;
 
     padding: 3.5rem 2rem;
-    padding-bottom: 0;
+    padding-bottom: 1rem;
 }
 
 .items__item {
     border: 1px solid rgba(192, 189, 189,.5);
-    width: 24%;
-    height: 49%;
+    height: 40rem;
+    width: 25rem;
+    flex-grow: 1;
+    margin: 1rem;
 }
-
-@media only screen and (max-width: 1000px) {
-    .items__item {
-      height: 30rem;
-    } 
-} 
 
 .items__figure {
     background-color: rgb(242,240,240);
@@ -122,21 +124,34 @@
 
 /* Shop right part */
 .shop__right {
-    width: 25%;
+    width: 32rem;
+    margin-left: 3rem;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 @media only screen and (max-width: 1000px) {
     .shop__right {
         margin-top: 5rem;
+        margin-left: 0;
         width: 100%;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-between;
     } 
 } 
+
+@media only screen and (max-width: 600px) {
+    .shop__right {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+
 
 .shop__right > * {
     background-color: white;
@@ -171,5 +186,18 @@
 
     .aside__box-4, .aside__box-5 {
         width: 48%;
+        margin-bottom: 0;
     }
 } 
+
+@media only screen and (max-width: 600px) {
+    .shop__right > * {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .shop__right > * {
+        width: 95%;
+    }
+}
