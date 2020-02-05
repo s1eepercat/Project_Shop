@@ -4,6 +4,24 @@ html {
     font-size: 62.5%; 
 }
 
+@media only screen and (max-width: 1000px) {
+    html {
+      font-size: 56.25%; /* 9px */
+    } 
+}
+
+@media only screen and (max-width: 600px) {
+    html {
+      font-size: 50%; /* 8px */
+    } 
+} 
+
+@media only screen and (max-width: 400px) {
+    html {
+      font-size: 46.875%; /* 7.5px */    
+    } 
+} 
+
 /* Basic reset */
 *,
 *::before,
@@ -29,6 +47,12 @@ select, option {
 a, p {
     font-size: 1.2rem;
 }
+
+@media only screen and (max-width: 600px) {
+    a, p {
+        font-size: 1.4rem;
+    }
+} 
 
 a {
     text-decoration: none;
