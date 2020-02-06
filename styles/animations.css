@@ -1,0 +1,30 @@
+@keyframes sale-wiggle {
+    0% {
+        opacity: 1;
+        transform: rotate(15deg);
+    }
+
+    1% {
+        transform: rotate(19deg);
+    }
+
+    2% {
+        transform: rotate(11deg);
+    }
+
+    3% {
+        transform: rotate(19deg);
+    }
+
+    4% {
+        transform: rotate(11deg);
+    }
+
+    5% {
+        transform: rotate(15deg);
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
+}

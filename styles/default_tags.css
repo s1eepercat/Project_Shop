@@ -31,9 +31,19 @@ html {
     box-sizing: inherit;
 }
 
+*::before, *::after, button {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
 h2 {
     font-size: 3.2rem;
     font-weight: 400;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
 label {
@@ -59,3 +69,14 @@ a {
     color: inherit;
 }
 
+button:hover, button:focus {
+    outline: none;
+}
+
+button {
+    transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1);;
+}
+
+button:active {
+    transform: scale(0.9);
+}
