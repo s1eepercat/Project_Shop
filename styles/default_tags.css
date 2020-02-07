@@ -52,7 +52,6 @@ a {
 
 a:hover {
     color: rgba(46,152,81,1);
-    transform: scale(1.1);
 }
 
 p {
@@ -61,14 +60,6 @@ p {
 
 button:hover, button:focus {
     outline: none;
-}
-
-button {
-    transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1);;
-}
-
-button:active {
-    transform: scale(0.9);
 }
 
 input:active, input:focus {
