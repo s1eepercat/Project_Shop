@@ -4,6 +4,70 @@ html {
     font-size: 62.5%; 
 }
 
+/* Basic reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+*::before, *::after, button {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 3.2rem;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+li {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+label {
+    font-size: 1.6rem;
+}
+
+select, option {
+    font-size: 1.2rem !important;
+}
+
+a {
+    font-size: 1.4rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: rgba(46,152,81,1);
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+button:hover, button:focus {
+    outline: none;
+}
+
+input:active, input:focus {
+    outline: none;
+    border: 2px solid rgba(46,152,81,.5);
+    opacity: 1;
+}
+
 @media only screen and (max-width: 1000px) {
     html {
       font-size: 56.25%; /* 9px */
@@ -22,40 +86,9 @@ html {
     } 
 } 
 
-/* Basic reset */
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-}
-
-h2 {
-    font-size: 3.2rem;
-    font-weight: 400;
-}
-
-label {
-    font-size: 1.6rem;
-}
-
-select, option {
-    font-size: 1.2rem !important;
-}
-
-a, p {
-    font-size: 1.2rem;
-}
-
 @media only screen and (max-width: 600px) {
+
     a, p {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
     }
 } 
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-

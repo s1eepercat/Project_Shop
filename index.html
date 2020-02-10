@@ -7,13 +7,21 @@
     <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/default_tags.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/animations.css">
     <title>Project Shop</title>
 </head>
 
 <body>
     
     <header class='header__container'>
-        <nav class='header__nav'></nav>
+        <nav class='header__nav'>
+            <ul class='nav__container'>
+                <li class='nav__item'>SHOP</li>
+                <li class='nav__item'>CART</li>
+                <li class='nav__item'>ABOUT</li>
+                <li class='nav__item'>CONTACTS</li>
+            </ul>
+        </nav>
     </header>
 
     <section class='shop__container'>
@@ -41,88 +49,209 @@
                 <div class='items__container'>
                     <div class='items__content'>
 
-                        <div class='items__item'>
-                            <div class='items__border'>
+                        <div class='items__item items__item--sale'>
+                            <div >
                                 <figure class='items__figure'>
-
+                                    <img class='items__image' src="images/1.jpg" alt="Dirty dark hoodie">
                                 </figure>
+                                <div class='items__details'>
+                                    <h3 class='items__name' title='Flying Ninja'>Flying Ninja</h3>
+                                    <div class='items__price-container'>
+                                        <h3 class='items__price  items__price--standard'>15.00</h3>
+                                        <h3 class='items__price  items__price--sale'>12.00</h3>
+                                    </div>
+                                    <button class='items__button'>ADD TO CART</button>
+                                </div>
                             </div>    
                         </div>
-                        <div class='items__item'>
-                            <div class='items__border'>
+            
+                        <div class='items__item items__item--sale'>
+                            <div >
                                 <figure class='items__figure'>
-
+                                    <img class='items__image' src="images/2.jpg" alt="Red hoodie">
                                 </figure>
+                                <div class='items__details'>
+                                    <h3 class='items__name' title='Happy Ninja'>Happy Ninja</h3>
+                                    <div class='items__price-container'>
+                                        <h3 class='items__price  items__price--standard'>18.00</h3>
+                                        <h3 class='items__price  items__price--sale'>10.00</h3>
+                                    </div>
+                                    <button class='items__button'>ADD TO CART</button>
+                                </div>
                             </div>    
                         </div>
-                        <div class='items__item'>
-                            <div class='items__border'>
-                                <figure class='items__figure'>
 
+                        <div class='items__item'>
+                            <div >
+                                <figure class='items__figure'>
+                                    <img class='items__image' src="images/3.jpg" alt="Alpha male hoodie">
                                 </figure>
+                                <div class='items__details'>
+                                    <h3 class='items__name' title='Happy Ninja'>Happy Ninja</h3>
+                                    <div class='items__price-container'>
+                                        <h3 class='items__price  items__price--standard'>35.00</h3>
+                                        <h3 class='items__price  items__price--sale'>15.00</h3>
+                                    </div>
+                                    <button class='items__button'>ADD TO CART</button>
+                                </div>
                             </div>    
                         </div>
-                        <div class='items__item'>
-                            <div class='items__border'>
-                                <figure class='items__figure'>
 
+                        <div class='items__item'>
+                            <div >
+                                <figure class='items__figure'>
+                                    <img class='items__image' src="images/4.jpg" alt="Light grey hoodie">
                                 </figure>
+                                <div class='items__details'>
+                                    <h3 class='items__name' title='Happy Silhouette'>Ninja Silhouette</h3>
+                                    <div class='items__price-container'>
+                                        <h3 class='items__price  items__price--standard'>20.00</h3>
+                                        <h3 class='items__price  items__price--sale'>10.00</h3>
+                                    </div>
+                                    <button class='items__button'>ADD TO CART</button>
+                                </div>
                             </div>    
                         </div>
-                        <div class='items__item'>
-                            <div class='items__border'>
-                                <figure class='items__figure'>
 
+                        <div class='items__item'>
+                            <div >
+                                <figure class='items__figure'>
+                                    <img class='items__image' src="images/5.jpg" alt="Yellow hoodie">
                                 </figure>
+                                <div class='items__details'>
+                                    <h3 class='items__name' title='Ninja Solhouette'>Ninja Solhouette</h3>
+                                    <div class='items__price-container'>
+                                        <h3 class='items__price  items__price--standard'>35.00</h3>
+                                        <h3 class='items__price  items__price--sale'>15.00</h3>
+                                    </div>
+                                    <button class='items__button'>ADD TO CART</button>
+                                </div>
                             </div>    
                         </div>
-                        <div class='items__item'>
-                            <div class='items__border'>
-                                <figure class='items__figure'>
 
+                        <div class='items__item'>
+                            <div >
+                                <figure class='items__figure'>
+                                    <img class='items__image' src="images/6.jpg" alt="Grey hoodie">
                                 </figure>
+                                <div class='items__details'>
+                                    <h3 class='items__name' title='Patient Ninja'>Patient Ninja</h3>
+                                    <div class='items__price-container'>
+                                        <h3 class='items__price  items__price--standard'>35.00</h3>
+                                        <h3 class='items__price  items__price--sale'>15.00</h3>
+                                    </div>
+                                    <button class='items__button'>ADD TO CART</button>
+                                </div>
                             </div>    
                         </div>
-                        <div class='items__item'>
-                            <div class='items__border'>
-                                <figure class='items__figure'>
 
+                        <div class='items__item'>
+                            <div >
+                                <figure class='items__figure'>
+                                    <img class='items__image' src="images/7.jpg" alt="Awesome hoodie">
                                 </figure>
+                                <div class='items__details'>
+                                    <h3 class='items__name' title='Premium Quality'>Premium Quality</h3>
+                                    <div class='items__price-container'>
+                                        <h3 class='items__price  items__price--standard'>20.00</h3>
+                                        <h3 class='items__price  items__price--sale'>5.00</h3>
+                                    </div>
+                                    <button class='items__button'>ADD TO CART</button>
+                                </div>
                             </div>    
                         </div>
-                        <div class='items__item'>
-                            <div class='items__border'>
-                                <figure class='items__figure'>
 
+                        <div class='items__item items__item--sale'>
+                            <div >
+                                <figure class='items__figure'>
+                                    <img class='items__image' src="images/8.jpg" alt="Black hoodie">
                                 </figure>
+                                <div class='items__details'>
+                                    <h3 class='items__name' title='Premium Quality'>Premium Quality</h3>
+                                    <div class='items__price-container'>
+                                        <h3 class='items__price  items__price--standard'>15.00</h3>
+                                        <h3 class='items__price  items__price--sale'>12.00</h3>
+                                    </div>
+                                    <button class='items__button'>ADD TO CART</button>
+                                </div>
                             </div>
                         </div>
-                        <div class='items__item'>
-                            <div class='items__border'>
-                                <figure class='items__figure'>
 
+                        <div class='items__item'>
+                            <div >
+                                <figure class='items__figure'>
+                                    <img class='items__image' src="images/9.jpg" alt="Dark grey hoodie">
                                 </figure>
+                                <div class='items__details'>
+                                    <h3 class='items__name' title='Qualified Ninja'>Qualified Ninja</h3>
+                                    <div class='items__price-container'>
+                                        <h3 class='items__price  items__price--standard'>100.00</h3>
+                                        <h3 class='items__price  items__price--sale'>50.00</h3>
+                                    </div>
+                                    <button class='items__button'>ADD TO CART</button>
+                                </div>
                             </div>    
                         </div>
-                        <div class='items__item'>
-                            <div class='items__border'>
-                                <figure class='items__figure'>
 
+                        <div class='items__item items__item--sale'>
+                            <div >
+                                <figure class='items__figure'>
+                                    <img class='items__image' src="images/10.jpg" alt="Anime hoodie">
                                 </figure>
+                                <div class='items__details'>
+                                    <h3 class='items__name' title='Kawaii Ninja'>Kawaii Ninja</h3>
+                                    <div class='items__price-container'>                                     
+                                        <h3 class='items__price  items__price--standard'>100.00</h3>
+                                        <h3 class='items__price  items__price--sale'>80.00</h3>  
+                                    </div>
+                                    <button class='items__button'>ADD TO CART</button>
+                                </div>
                             </div>    
                         </div>
                         
                     </div>
                 </div>
+
             </main>
 
             <aside class='shop__right'>
 
-                <div class='aside__box-1'></div>
-                <div class='aside__box-2'></div>
-                <div class='aside__box-3'></div>
-                <div class='aside__box-4'></div>
-                <div class='aside__box-5'></div>
+                <div class='aside__box-1'>
+                    <input class ='aside__input' type="text" placeholder="Search & hit enter...">
+                </div>
+                <div class='aside__box-2'>
+                        <h3 class='aside__title'>Recent Posts</h3>
+                        <div class='aside__break'></div>
+                        <div class='aside__texts-container'>
+                            <p class='aside__text' title='Honest Qualities'>Honest Qualities</p>
+                            <p class='aside__text' title="Breadcause you're worth it">Breadcause you're worth it</p>
+                            <p class='aside__text' title='Your tray of goodies'>Your tray of goodies</p>
+                            <p class='aside__text' title='Are Carbs for you?'>Are Carbs for you?</p>
+                            <p class='aside__text' title='Healthy Bread Solutions'>Healthy Bread Solutions</p>
+                        </div>
+                </div>
+                <div class='aside__box-3'>
+                        <h3 class='aside__title'>Recent Comments</h3>
+                        <div class='aside__break'></div>
+                        <div class='aside__texts-container'>
+                            <p class='aside__text' title='Maria on Long Phrase Toss A Coin To Your Witcher'>Maria on Long Phrase Toss A Coin To Your Witcher</p>
+                            <p class='aside__text' title='Maria on Premium Quality'>Maria on Premium Quality</p>
+                            <p class='aside__text' title='Maria on Woo Logo'>Maria on Woo Logo</p>
+                            <p class='aside__text' title='Maria on Ninja Silhouette'>Maria on Ninja Silhouette</p>
+                            <p class='aside__text' title='Maria on Ship Your Idea'>Maria on Ship Your Idea</p>
+                        </div>
+                </div>
+                <div class='aside__box-4'>
+                        <h3 class='aside__title'>Archives</h3>
+                        <div class='aside__break'></div>
+                        <div class='aside__texts-container'>
+                            <p class='aside__text' title='November 16'>November 16</p>
+                        </div>
+                </div>
+                <div class='aside__box-5'>
+                        <h3 class='aside__title'>Categories</h3>
+                        <div class='aside__break'></div>
+                </div>
 
             </aside>
         </div>
