@@ -42,15 +42,15 @@ select, option {
 }
 
 a {
-    font-size: 1.4rem;
-}
-
-a {
     text-decoration: none;
     color: inherit;
 }
 
-a:hover {
+a:not(.nav__link) {
+    font-size: 1.4rem;
+}
+
+a:not(.nav__link):hover {
     color: rgba(46,152,81,1);
 }
 
@@ -60,6 +60,7 @@ p {
 
 button:hover, button:focus {
     outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 input:active, input:focus {
