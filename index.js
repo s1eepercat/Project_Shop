@@ -1,41 +1,46 @@
 const itemsContent = document.querySelector('.items__content');
 
-async function getItemsAsync() {
-    let response = await fetch(`http://localhost:3000/items`)
-    .catch(error => console.log(error));
+function getDataAsync(method,url) {
+    let xhr = new XMLHttpRequest();
+    xhr.open(method,url);
+    xhr.send();
+    
+    xhr.onerror = function() {
+        console.log("Request failed");
+    };
+    
+    xhr.onload = function() {
+        if (xhr.status === 200) { 
+            let data = JSON.parse(xhr.response);
 
-    let data = response.json();
-    return data;
+            for(i = 0; i < data.length; i ++) {
+                const curItem = data[i];
+                const item = new ShopItem(curItem.id,curItem.name,curItem.price,curItem.discount,curItem.image);
+                item.generateItem();
+            }
+        }
+    };
 }
 
-const items = getItemsAsync()
-.then(data => {
-    for(i = 0; i < data.length; i ++) {
-        const curItem = data[i];
-        const item = new ShopItem(curItem.id,curItem.name,curItem.price,curItem.discount,curItem.image);
-        item.generateItem();
-    }
-})
+getDataAsync("GET","http://localhost:3000/items");
 
-class ShopItem {
-    constructor(id,name,price,discount,image) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.discount = discount;
-        this.image = image;
-    }
+function ShopItem(id,name,price,discount,image) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.discount = discount;
+    this.image = image;
 
-    createSingleElement(tag, parent, cls='') {
+    this.createSingleElement = function(tag, parent, cls) {
         let el = document.createElement(tag);
         el.className += cls;
         parent.appendChild(el);
         return el;
     }
 
-    generateItem() {
+    this.generateItem = function() {
         const itemsItem = this.createSingleElement('div',itemsContent, (this.discount === 0) ? 'items__item' : 'items__item items__item--sale');
-        const div = this.createSingleElement('div',itemsItem);
+        const div = this.createSingleElement('div',itemsItem,'');
         const itemsFigure = this.createSingleElement('figure',div,'items__figure');
         const itemsImage = this.createSingleElement('img',itemsFigure,'items__image');
         const itemsDetails = this.createSingleElement('div',div,'items__details');
@@ -50,8 +55,8 @@ class ShopItem {
         itemsImage.setAttribute('alt',this.name);
         itemsName.textContent = this.name;
         itemsName.setAttribute('title',this.name);
-        itemsPriceStandard.textContent = `${this.price}.00`;
-        itemsPriceSale.textContent = `${Math.floor((1 - this.discount/100) * this.price)}.00`;
+        itemsPriceStandard.textContent = this.price+'.00';
+        itemsPriceSale.textContent = Math.floor((1 - this.discount/100) * this.price) +'.00';
         itemsButton.textContent = 'ADD TO CART';
     }
 }
