@@ -96,6 +96,7 @@
 .shop__container {
     background-image: url('../images/bg.jpeg');
     background-size: cover; 
+    min-height: calc(100vh - 20rem);
 }
 
 .shop__content {
@@ -271,7 +272,7 @@
 }
 
 .items__name {
-    width: 10rem;
+    max-width: 12rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -279,7 +280,7 @@
 }
 
 .items__price-container {
-    width: 12rem;
+    width: 13rem;
     display: flex;
 }
 
@@ -355,6 +356,14 @@
 
     padding: 2.5rem 2rem;
     padding-top: 3rem;
+}
+
+.title__link {
+    font-size: 1.4rem;
+}
+
+.title__link:hover {
+    color: rgba(46,152,81,1);
 }
 
 .sorting__container {
@@ -509,10 +518,14 @@
     font-size: 1.8rem;
     font-weight: 500;
 
+    text-align: center;
+    line-height: 6rem;
+
     cursor: pointer;
     transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
 
     position: relative;
+
 }
 
 .admin__new-item:active {
@@ -542,10 +555,9 @@
         height: 100%;
         width: 100%;
         border-radius: 100%;
-
         font-size: 3rem;
-        line-height: 5.5rem;
-
+        line-height: 6rem;
         background-image: linear-gradient(90deg, rgba(67,207,177,1) 21%, rgba(46,152,81,1) 100%);
+
     }
 }

@@ -1,0 +1,57 @@
+const itemsContent = document.querySelector('.items__content');
+
+async function getItemsAsync() {
+    let response = await fetch(`http://localhost:3000/items`)
+    .catch(error => console.log(error));
+
+    let data = response.json();
+    return data;
+}
+
+const items = getItemsAsync()
+.then(data => {
+    for(i = 0; i < data.length; i ++) {
+        const curItem = data[i];
+        const item = new ShopItem(curItem.id,curItem.name,curItem.price,curItem.discount,curItem.image);
+        item.generateItem();
+    }
+})
+
+class ShopItem {
+    constructor(id,name,price,discount,image) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.discount = discount;
+        this.image = image;
+    }
+
+    createSingleElement(tag, parent, cls='') {
+        let el = document.createElement(tag);
+        el.className += cls;
+        parent.appendChild(el);
+        return el;
+    }
+
+    generateItem() {
+        const itemsItem = this.createSingleElement('div',itemsContent, (this.discount === 0) ? 'items__item' : 'items__item items__item--sale');
+        const div = this.createSingleElement('div',itemsItem);
+        const itemsFigure = this.createSingleElement('figure',div,'items__figure');
+        const itemsImage = this.createSingleElement('img',itemsFigure,'items__image');
+        const itemsDetails = this.createSingleElement('div',div,'items__details');
+        const itemsName = this.createSingleElement('h3',itemsDetails,'items__name');
+        const itemsPriceContainer = this.createSingleElement('div',itemsDetails,'items__price-container');
+        const itemsPriceStandard = this.createSingleElement('h3',itemsPriceContainer,'items__price items__price--standard');
+        const itemsPriceSale = this.createSingleElement('h3',itemsPriceContainer,'items__price items__price--sale');
+        const itemsButton = this.createSingleElement('button',itemsDetails,'items__button');
+
+        itemsItem.setAttribute('item',this.id);
+        itemsImage.setAttribute('src',this.image);
+        itemsImage.setAttribute('alt',this.name);
+        itemsName.textContent = this.name;
+        itemsName.setAttribute('title',this.name);
+        itemsPriceStandard.textContent = `${this.price}.00`;
+        itemsPriceSale.textContent = `${Math.floor((1 - this.discount/100) * this.price)}.00`;
+        itemsButton.textContent = 'ADD TO CART';
+    }
+}
