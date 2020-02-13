@@ -212,6 +212,31 @@
     z-index: 30;
 }
 
+.items__item:hover > .items__edit{
+    display: block;
+}
+
+.items__edit {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    height: 4rem;
+    width: 4rem;
+    background-image: linear-gradient(90deg, rgba(67,207,177,1) 21%, rgba(46,152,81,1) 100%);
+    color: white;
+    border: 1px solid white;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 4rem;
+    z-index: 40;
+    cursor: pointer;
+}
+
+.items__edit:active {
+    transform: scale(0.9);
+}
+
 .items__item--sale::after {
     content: "SALE!";
     position: absolute;

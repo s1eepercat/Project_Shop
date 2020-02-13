@@ -11,7 +11,8 @@ class Item {
 const itemArr = [];
 
 function addItem(name,price,image,discount=0) {
-    const item = new Item(itemArr.length+1,name,price,image,discount);
+    /* NEED TO MAKE ID READ HIGHEST LATEST ID INSTEAD OF THE NUMBER*/
+    const item = new Item(itemArr.length+1,name,price,image,discount); 
     itemArr.push(item);
 }
 
@@ -26,7 +27,7 @@ addItem('Premium Quality',20,'images/7.jpg');
 addItem('Premium Quality',15,'images/8.jpg',25);
 addItem('Qualified Ninja',100,'images/9.jpg');
 addItem('Kawaii Ninja',100,'images/10.jpg',40);
-addItem('Naruto Kun',150,'https://teezeli.com/wp-content/uploads/2019/04/2018-Aikooki-Winter-3D-Naruto-Hoodies-Men-women-Fashion-Hot-High-Quality-Streetwear-3D-Print-Naruto.jpg');
+addItem('Naruto Kun',150,'images/8.jpg');
 //Imitated db
 
 function adminAdd(data) {
@@ -34,7 +35,26 @@ function adminAdd(data) {
     console.log(`Added >>> ${data.name} ,${data.price}, ${data.image}, ${data.discount}`);
 }
 
+
+
+
+
+
+
+const adminUpdate = (data) => { 
+        const obj = itemArr.find(Object => Object.id === parseInt(data[0],10));
+        obj.name = data[1].name;
+        obj.price = data[1].price;
+        obj.image = data[1].image;
+        obj.discount = data[1].discount;
+}
+
+const adminSearch = (data) => itemArr.find(Object => Object.id === parseInt(data,10));
+
+
 module.exports = {
     items: itemArr,
-    add: adminAdd
+    add: adminAdd,
+    update: adminUpdate,
+    find: adminSearch
 }

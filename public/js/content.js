@@ -1,30 +1,7 @@
-const itemsContent = document.querySelector('.items__content');
-
-function getDataAsync(method,url) {
-    let xhr = new XMLHttpRequest();
-    xhr.open(method,url);
-    xhr.send();
-    
-    xhr.onerror = function() {
-        console.log("Request failed");
-    };
-    
-    xhr.onload = function() {
-        if (xhr.status === 200) { 
-            let data = JSON.parse(xhr.response);
-
-            for(i = 0; i < data.length; i ++) {
-                const curItem = data[i];
-                const item = new ShopItem(curItem.id,curItem.name,curItem.price,curItem.discount,curItem.image);
-                item.generateItem();
-            }
-        }
-    };
-}
-
-getDataAsync("GET","http://localhost:3000/items");
+const itemsContent = document.querySelector('#items_content');
 
 function ShopItem(id,name,price,discount,image) {
+
     this.id = id;
     this.name = name;
     this.price = price;
@@ -38,8 +15,9 @@ function ShopItem(id,name,price,discount,image) {
         return el;
     }
 
-    this.generateItem = function() {
+    this.createLayout = function() {
         const itemsItem = this.createSingleElement('div',itemsContent, (this.discount === 0) ? 'items__item' : 'items__item items__item--sale');
+        const a = this.createSingleElement('a',itemsItem,'items__edit');
         const div = this.createSingleElement('div',itemsItem,'');
         const itemsFigure = this.createSingleElement('figure',div,'items__figure');
         const itemsImage = this.createSingleElement('img',itemsFigure,'items__image');
@@ -51,6 +29,8 @@ function ShopItem(id,name,price,discount,image) {
         const itemsButton = this.createSingleElement('button',itemsDetails,'items__button');
 
         itemsItem.setAttribute('item',this.id);
+        a.textContent = 'Edit'
+        a.setAttribute('href','admin.html?id=' + this.id);
         itemsImage.setAttribute('src',this.image);
         itemsImage.setAttribute('alt',this.name);
         itemsName.textContent = this.name;
@@ -58,5 +38,16 @@ function ShopItem(id,name,price,discount,image) {
         itemsPriceStandard.textContent = this.price+'.00';
         itemsPriceSale.textContent = Math.floor((1 - this.discount/100) * this.price) +'.00';
         itemsButton.textContent = 'ADD TO CART';
+    }
+}
+
+
+sendRequest('GET', backUrl + '/items','',generateItems);
+
+
+function generateItems(data) {
+    for(i = 0; i < data.length; i ++) {
+        const item = new ShopItem(data[i].id, data[i].name, data[i].price, data[i].discount, data[i].image);
+        item.createLayout();
     }
 }
