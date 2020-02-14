@@ -41,11 +41,30 @@ function ShopItem(id,name,price,discount,image) {
     }
 }
 
+function addAdminPanel() {
+    const aContainer = document.createElement('div');
+    aContainer.classList.add('admin__container');
+    itemsContent.appendChild(aContainer);
+
+    const aButton = document.createElement('a');
+    aButton.classList.add('admin__new-item');
+    aButton.textContent = 'NEW ITEM';
+    aButton.setAttribute('href','admin.html');
+    aContainer.appendChild(aButton);
+}
+
+
 sendRequest('GET', backUrl + '/items','',generateItems);
+
 
 function generateItems(data) {
     for(i = 0; i < data.length; i ++) {
         const item = new ShopItem(data[i].id, data[i].name, data[i].price, data[i].discount, data[i].image);
         item.createLayout();
     }
+
+    addAdminPanel();
 }
+
+
+

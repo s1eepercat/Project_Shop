@@ -60,5 +60,5 @@ module.exports = {
     add: adminAdd,
     update: adminUpdate,
     search: adminSearch,
-    delete: adminDelete
+    del: adminDelete
 }

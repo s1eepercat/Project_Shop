@@ -7,10 +7,11 @@ const app = express();
 const port = process.env.POST || 3000;
 
 app.listen(3000, () => { console.log(`Server is on, port ${port}.`) });
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/', express.static('public'));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/items', (req,res) => {
     const itemArr = db.itemArr;
@@ -33,6 +34,6 @@ app.put('/items/update', (req,res) => {
 });
 
 app.delete('/items/delete', (req,res) => {
-    const del = db.delete(req.body);
+    const del = db.del(req.body);
     del ? res.status(200).json('Entry deleted') : res.status(404).json('Did not delete');
 })

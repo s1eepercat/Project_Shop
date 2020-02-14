@@ -32,6 +32,7 @@ function deleteButtonCreate() {
     const button = document.createElement('button');
     button.classList.add('form__delete');
     button.setAttribute('type','button');
+    button.textContent = 'Delete';
     form.appendChild(button);
     button.onclick = function() {
 
