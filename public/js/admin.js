@@ -5,20 +5,14 @@ const image = document.querySelector('#image');
 const discount = document.querySelector('#discount');
 const checkbox = document.querySelector('#checkbox');
 const status_el = document.querySelector('#status');
-let deleteButton;
 
+let deleteButton, isEditMode;
 
-
-let isEditMode;
 itemId = window.location.search.slice(4);
 isEditMode = !!itemId;
 
 if (isEditMode) {
-    sendRequest('POST', backUrl + '/find', [itemId] ,prepareEdit,onError);
-}
-
-function onError(req) {
-    status_el.innerText = 'ERROR: STATUS' + req.status;
+    sendRequest('POST', backUrl + '/items', [itemId] ,prepareEdit);
 }
 
 function prepareEdit(res) {
@@ -37,14 +31,19 @@ function prepareEdit(res) {
 function deleteButtonCreate() {
     const button = document.createElement('button');
     button.classList.add('form__delete');
+    button.setAttribute('type','button');
     form.appendChild(button);
+    button.onclick = function() {
+
+        sendRequest('DELETE', backUrl + '/items/delete', [itemId] ,successCallback);
+    }
 }
 
 function successCallback() {
     if (isEditMode) {
         window.location = 'index.html';
     } else {
-        status_el.innerText = 'SUCCESS!';
+        status_el.innerText = 'Item successfully added!';
         name.value = '';
         price.value = '';
         discount.value = '';
@@ -58,11 +57,11 @@ function formHandle(e) {
         name: name.value,
         price: price.value,
         image: image.value,
-        discount: (checkbox.checked ? discount.value : 0) 
+        discount: (checkbox.checked ? (discount.value ? discount.value : 0) : 0) 
     };
 
-    isEditMode && sendRequest('PUT', backUrl + '/items',[itemId,data],successCallback); 
-    !isEditMode && sendRequest('POST', backUrl + '/items',data,successCallback);
+    isEditMode && sendRequest('PUT', backUrl + '/items/update',[itemId,data],successCallback); 
+    !isEditMode && sendRequest('POST', backUrl + '/items/add',data,successCallback);
     
     return false;
 }

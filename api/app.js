@@ -12,21 +12,27 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/', express.static('public'));
 
-app.get('/items', (req,res) => res.json(db.items));
-
-app.post('/find', (req,res) => {
-    const search = db.find(req.body);
-    search ? res.status(200).json(search) : res.status(404);
-})
+app.get('/items', (req,res) => {
+    const itemArr = db.itemArr;
+    itemArr ? res.status(200).json(itemArr) : res.status(404).json('No entries found');
+});
 
 app.post('/items', (req,res) => {
-    db.add(req.body);
-    res.status(200).send(JSON.stringify('Entry created'));
+    const search = db.search(req.body);
+    search ? res.status(200).json(search) : res.status(404).json('No entry found');
+})
+
+app.post('/items/add', (req,res) => {
+    const add = db.add(req.body);
+    add ? res.status(200).json('Entry created') : res.status(404).json('Adding failed');
 });
 
-app.put('/items', (req,res) => {
-    db.update(req.body);
-    res.status(200).send(JSON.stringify('Entry updated'));
+app.put('/items/update', (req,res) => {
+    const update = db.update(req.body);
+    update ? res.status(200).json('Entry updated') : res.status(404).json('Could not update');
 });
 
-
+app.delete('/items/delete', (req,res) => {
+    const del = db.delete(req.body);
+    del ? res.status(200).json('Entry deleted') : res.status(404).json('Did not delete');
+})

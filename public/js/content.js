@@ -41,9 +41,7 @@ function ShopItem(id,name,price,discount,image) {
     }
 }
 
-
 sendRequest('GET', backUrl + '/items','',generateItems);
-
 
 function generateItems(data) {
     for(i = 0; i < data.length; i ++) {

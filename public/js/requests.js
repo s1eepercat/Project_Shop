@@ -20,10 +20,10 @@ function sendRequest(method,url,data,callback) {
             
         } else {
 
-            console.log('Error status: ' + xhr.status);                
+            console.log('Error status: ' + xhr.status + '. ' + xhr.response);                
 
         }
-    };
+    }
 }
 
 
