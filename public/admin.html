@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/default_tags.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <title>Project Shop</title>
+</head>
+
+<body>
+    
+    <header class='header__container'>
+        <nav class='header__nav'>
+            <ul class='nav__container'>
+                <li class='nav__item'>
+                    <a class='nav__link' href='#'>HOME</a>
+                </li>
+                <li class='nav__item'>
+                    <a class='nav__link' href='index.html'>SHOP</a>
+                </li>
+                <li class='nav__item'>
+                    <a class='nav__link' href='cart.html'>CART</a>
+                </li>
+                <li class='nav__item'>
+                    <a class='nav__link' href='#'>ABOUT</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <section class='shop__container'>
+            <div class='shop__content'>
+
+                <h3 id='status' class='form__status'></h3>
+
+                <form id="form" class='form__container' onsubmit='return formHandle(event)'>
+
+                    <input id="name" class='form__input' type='text' name='name' required="required" maxlength="30" placeholder='Item name'>
+                    <input id="price" class='form__input' type='number' name='price' min='0' max='10000' required="required" placeholder='Item price'>
+                    
+                    <select id="image" class='form__select' name='image'>
+                        <option value='images/1.jpg'>Grey Sweater</option>
+                        <option value='images/2.jpg'>Blue Hoodie</option>
+                        <option value='images/3.jpg'>Red Shirt</option>
+                        <option value='images/4.jpg'>Yellow Sweater</option>
+                        <option value='images/5.jpg'>Dark Grey Sweater</option>
+                        <option value='images/6.jpg'>White Shirt</option>
+                        <option value='images/7.jpg'>Blue Shirt</option>
+                        <option value='images/8.jpg'>Green Shirt</option>
+                        <option value='images/9.jpg'>Pink Shirt</option>
+                        <option value='images/10.jpg'>Invisible Shirt</option>
+                    </select>
+                    
+                    <div class='form__discount-container'>
+                        <label class='form__label' for='checkbox'>Discount</label>
+                        <input class='form__checkbox' id='checkbox' type='checkbox'>
+
+                        <input id="discount" class='form__input-discount' type='number' name='discount' min='0' max='99' placeholder='Discount in %'>
+                    </div>
+
+                    <button class='form__button' type="submit">SAVE</button>
+                </form>       
+
+            </div>
+        </section>
+        
+    </section>
+
+    <script type="text/javascript" src="js/requests.js"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
+
+</body>
+
+</html>

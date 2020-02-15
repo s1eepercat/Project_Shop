@@ -1,0 +1,114 @@
+.shop__container {
+    min-height: calc(100vh - 6rem); 
+}
+
+.shop__content {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.form__status {
+    margin: 1.5rem 0;
+    padding: 1.5rem 4rem 1rem 4rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+}
+
+.form__input {
+    padding: 1.5rem 1.5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    border: 2px solid white;
+}
+
+.form__discount-container {
+    padding: 1.5rem;
+    margin: 1rem;
+    background-color: rgba(122, 122, 122, .25);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 10rem;
+}
+
+.form__checkbox:checked ~ .form__input-discount {
+    display: block;
+    width: 15rem;
+}
+
+.form__input-discount {
+    padding: 1.5rem 1.5rem;
+    font-size: 1.5rem;
+    display: none;
+}
+
+.form__label {
+    font-size: 1.5rem;
+}
+
+.form__checkbox {
+    width: 2rem;
+    height: 2rem;
+    margin: 1rem;
+}
+
+.form__select {
+    padding: 1.5rem 1.5rem;
+    margin: 1rem;
+    font-size: 1.5rem !important;
+}
+
+.form__select > * {
+    font-size: 1.5rem !important;
+}
+
+.form__button {
+    padding: 2rem 2.5rem;
+    margin: 1rem;
+    background-image: linear-gradient(90deg, rgba(67,207,177,1) 21%, rgba(46,152,81,1) 100%);
+    letter-spacing: .1rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+
+.form__button:hover {
+    color: rgba(46,152,81,1);
+    background-image: none;
+    background-color: white;
+    border: 1px solid rgba(46,152,81,1);
+}
+
+.form__delete {
+    padding: 2rem 2.5rem;
+    width: 15rem;
+    height: 6rem;
+    margin: 5rem 1rem 1rem 1rem;
+    background-color: black;
+    letter-spacing: .1rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    text-transform: uppercase;
+}
+
+.form__delete:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.form__button:active, .form__delete:active {
+    transform: scale(0.9);
+}
