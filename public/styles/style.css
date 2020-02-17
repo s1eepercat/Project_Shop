@@ -569,7 +569,7 @@
         height: 6rem;
         width: 6rem;
         border-radius: 100%;
-        line-height: initial;
+        line-height: 3rem;
     }
 
     .admin__new-item::after {
@@ -581,8 +581,9 @@
         width: 100%;
         border-radius: 100%;
         font-size: 3rem;
-        line-height: 6rem;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: bold;
+        line-height: 5.5rem;
         background-image: linear-gradient(90deg, rgba(67,207,177,1) 21%, rgba(46,152,81,1) 100%);
-
     }
 }

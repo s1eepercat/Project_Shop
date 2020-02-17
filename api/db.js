@@ -50,6 +50,7 @@ const adminUpdate = (data) => {
         obj.price = data[1].price;
         obj.image = data[1].image;
         obj.discount = data[1].discount;
+        console.log(data[1]);
         return true
 }
 

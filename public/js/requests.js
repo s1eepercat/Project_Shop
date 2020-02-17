@@ -29,6 +29,3 @@ function sendRequest(method,url,data,callback) {
     xhr.send(JSON.stringify(data));
 }
 
-
-
-
