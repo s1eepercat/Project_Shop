@@ -12,7 +12,6 @@ function sendRequest(method,url,data,callback) {
     };
 
     xhr.onload = function() {
-        if (xhr.readyState === 4) {
             if (xhr.status === 200) { 
                 let response = JSON.parse(xhr.response);
 
@@ -23,7 +22,6 @@ function sendRequest(method,url,data,callback) {
                 console.log('Error status: ' + xhr.status + '. ' + xhr.response);                
 
             }
-        }
     }
 
     xhr.send(JSON.stringify(data));

@@ -29,7 +29,6 @@ function ShopItem(id,name,price,discount,image) {
         const itemsButton = this.createSingleElement('button',itemsDetails,'items__button');
         
 
-        itemsItem.setAttribute('item',this.id);
         a.textContent = 'Edit'
         a.setAttribute('href','admin.html?id=' + this.id);
         itemsImage.setAttribute('src',this.image);
@@ -46,7 +45,11 @@ function checkNum(num) {
     let testString = num.toString();
     if (testString.indexOf('.') !== -1) {
         let str = (Math.round(num * 100)).toString();
-        return str.slice(0, str.length-2) + "." + str.slice(str.length-2);
+        if (str.length >= 4) {
+            return str.slice(0, str.length-2) + '.' + str.slice(str.length-2);
+        } else {
+            return '0.' + str.slice(str.length-2);
+        }
     } else {
         return num + '.00'
     }
