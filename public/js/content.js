@@ -1,7 +1,6 @@
 const itemsContent = document.querySelector('#items_content');
 
 function ShopItem(id,name,price,discount,image) {
-
     this.id = id;
     this.name = name;
     this.price = price;
@@ -28,7 +27,6 @@ function ShopItem(id,name,price,discount,image) {
         const itemsPriceSale = this.createSingleElement('h3',itemsPriceContainer,'items__price items__price--sale');
         const itemsButton = this.createSingleElement('button',itemsDetails,'items__button');
         
-
         a.textContent = 'Edit'
         a.setAttribute('href','admin.html?id=' + this.id);
         itemsImage.setAttribute('src',this.image);
@@ -67,16 +65,13 @@ function addAdminPanel() {
     aContainer.appendChild(aButton);
 }
 
-
-sendRequest('GET', backUrl + '/items','',generateItems);
-
+sendRequest('GET','/items','',generateItems);
 
 function generateItems(data) {
-    for(i = 0; i < data.length; i ++) {
-        const item = new ShopItem(data[i].id, data[i].name, data[i].price, data[i].discount, data[i].image);
+    data.forEach(function(obj){
+        const item = new ShopItem(obj.id, obj.name, obj.price, obj.discount, obj.image);
         item.createLayout();
-    }
-
+    })
     addAdminPanel();
 }
 

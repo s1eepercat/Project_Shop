@@ -1,5 +1,5 @@
 class Item {
-    constructor(id,name,price,image,discount) {
+    constructor(id, name, price, image, discount) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -9,56 +9,59 @@ class Item {
 }
 
 const itemArr = [];
-let itemCount = 1;
+let incrementingID = 1;
 
-const createItem = (name,price,image,discount=0) => {
-    const item = new Item(itemCount,name,price,image,discount); 
-    itemCount ++;
+const createItem = (name, price, image, discount=0) => {
+    const item = new Item(incrementingID, name, price, image, discount); 
+    incrementingID ++;
     itemArr.push(item);
 }
 
-createItem('Flying Ninja',15,'images/1.jpg',20);
-createItem('Happy Ninja',18,'images/2.jpg',30);
-createItem('Happy Ninja',35,'images/3.jpg');
-createItem('Ninja Silhouette',20,'images/4.jpg');
-createItem('Ninja Silhouette',35,'images/5.jpg');
-createItem('Patient Ninja',35,'images/6.jpg');
-createItem('Premium Quality',20,'images/7.jpg');
-createItem('Premium Quality',15,'images/8.jpg',25);
-createItem('Qualified Ninja',100,'images/9.jpg');
-createItem('Kawaii Ninja',100,'images/10.jpg',40);
-createItem('Naruto Kun',150,'images/8.jpg');
+createItem('Flying Ninja', 15, 'images/1.jpg', 20);
+createItem('Happy Ninja', 18, 'images/2.jpg', 30);
+createItem('Happy Ninja', 35, 'images/3.jpg');
+createItem('Ninja Silhouette', 20, 'images/4.jpg');
+createItem('Ninja Silhouette', 35, 'images/5.jpg');
+createItem('Patient Ninja', 35, 'images/6.jpg');
+createItem('Premium Quality', 20, 'images/7.jpg');
+createItem('Premium Quality', 15, 'images/8.jpg', 25);
+createItem('Qualified Ninja', 100, 'images/9.jpg');
+createItem('Kawaii Ninja', 100, 'images/10.jpg', 40);
+createItem('Naruto Kun', 150, 'images/8.jpg');
 
+const adminSearch = (data) => itemArr.find(object => object.id === Number(data.id));
 
 const adminAdd = (data) => {
     createItem(data.name, Number(data.price), data.image, Number(data.discount)); 
     return true
 }
 
-const adminDelete = (data) => {
-    for (let i = 0; i < itemArr.length; i ++) {
-        if (itemArr[i].id === parseInt(data,10)) {
-            itemArr.splice(i, 1);
-            return true
-        }
+const adminUpdate = (req) => { 
+    const id = Number(req.query.id);
+    const data = req.body;
+    const obj = itemArr.find(object => object.id === id);
+    if (obj) {
+        obj.name = data.name;
+        obj.price = data.price;
+        obj.image = data.image;
+        obj.discount = data.discount;
     }
+    return obj
 }
 
-const adminUpdate = (data) => { 
-        const obj = itemArr.find(Object => Object.id === parseInt(data[0],10));
-        obj.name = data[1].name;
-        obj.price = data[1].price;
-        obj.image = data[1].image;
-        obj.discount = data[1].discount;
-        return true
+const adminDelete = (req) => {
+    const id = Number(req.query.id);
+    let result = false;
+    itemArr.forEach((obj, i) => {
+        obj.id === id && (itemArr.splice(i, 1)) && (result = true)
+    })
+    return result
 }
-
-const adminSearch = (data) => itemArr.find(Object => Object.id === parseInt(data,10));
 
 module.exports = {
     itemArr: itemArr,
-    add: adminAdd,
-    update: adminUpdate,
-    search: adminSearch,
-    del: adminDelete
+    adminAdd: adminAdd,
+    adminUpdate: adminUpdate,
+    adminSearch: adminSearch,
+    adminDelete: adminDelete
 }
