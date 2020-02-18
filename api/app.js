@@ -15,18 +15,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/items', (req,res) => {
     const itemArr = db.itemArr;
-    itemArr ? res.status(200).json(itemArr) : res.status(404).json('No entries found');
+    itemArr.length > 0 ? res.status(200).json(itemArr) : res.status(404).json('No entries found');
 });
 
 app.post('/items', (req,res) => {
     const search = db.search(req.body);
-    search ? res.status(200).json(search) : res.status(404).json('No entry found');
+    search !== undefined ? res.status(200).json(search) : res.status(404).json('No entry found');
 })
-
-app.post('/items/add', (req,res) => {
-    const add = db.add(req.body);
-    add ? res.status(200).json('Entry created') : res.status(404).json('Adding failed');
-});
 
 app.put('/items/update', (req,res) => {
     const update = db.update(req.body);
@@ -35,5 +30,10 @@ app.put('/items/update', (req,res) => {
 
 app.delete('/items/delete', (req,res) => {
     const del = db.del(req.body);
-    del ? res.status(200).json('Entry deleted') : res.status(404).json('Did not delete');
+    del ? res.status(200).json('Entry deleted') : res.status(404).json('Item not found');
 })
+
+app.post('/items/add', (req,res) => {
+    const add = db.add(req.body);
+    add ? res.status(200).json('Entry created') : res.status(404).json('Adding failed');
+});

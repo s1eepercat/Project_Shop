@@ -42,15 +42,18 @@ const adminDelete = (data) => {
             return true
         }
     }
+    return false
 }
 
 const adminUpdate = (data) => { 
         const obj = itemArr.find(Object => Object.id === parseInt(data[0],10));
-        obj.name = data[1].name;
-        obj.price = data[1].price;
-        obj.image = data[1].image;
-        obj.discount = data[1].discount;
-        return true
+        if (obj) {
+            obj.name = data[1].name;
+            obj.price = data[1].price;
+            obj.image = data[1].image;
+            obj.discount = data[1].discount;
+        }
+        return obj
 }
 
 const adminSearch = (data) => itemArr.find(Object => Object.id === parseInt(data,10));
