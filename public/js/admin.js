@@ -11,9 +11,8 @@ let deleteButton, isEditMode;
 itemId = window.location.search.slice(4);
 isEditMode = !!itemId;
 
-if (isEditMode) {
-    sendRequest('POST', backUrl + '/items', [itemId] ,prepareEdit);
-}
+isEditMode && sendRequest('POST', backUrl + '/items', [itemId] ,prepareEdit);
+
 
 function prepareEdit(res) {
     name.value = res.name;
@@ -21,7 +20,7 @@ function prepareEdit(res) {
     image.value = res.image;
 
     if (res.discount) {
-        checkbox.checked = true;
+        checkbox.checked = res.discount;
         discount.value = res.discount;
     } 
 
@@ -34,8 +33,8 @@ function deleteButtonCreate() {
     button.setAttribute('type','button');
     button.textContent = 'Delete';
     form.appendChild(button);
-    button.onclick = function() {
 
+    button.onclick = function() {
         sendRequest('DELETE', backUrl + '/items/delete', [itemId] ,successCallback);
     }
 }
@@ -58,7 +57,7 @@ function formHandle(e) {
         name: name.value,
         price: price.value,
         image: image.value,
-        discount: (checkbox.checked ? (discount.value ? discount.value : 0) : 0) 
+        discount: (checkbox.checked ? discount.value : 0) 
     };
 
     isEditMode && sendRequest('PUT', backUrl + '/items/update',[itemId,data],successCallback); 

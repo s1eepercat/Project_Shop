@@ -16,7 +16,7 @@ function ShopItem(id,name,price,discount,image) {
     }
 
     this.createLayout = function() {
-        const itemsItem = this.createSingleElement('div',itemsContent, (this.discount === 0) ? 'items__item' : 'items__item items__item--sale');
+        const itemsItem = this.createSingleElement('div',itemsContent, (this.discount == 0) ? 'items__item' : 'items__item items__item--sale');
         const a = this.createSingleElement('a',itemsItem,'items__edit');
         const div = this.createSingleElement('div',itemsItem,'');
         const itemsFigure = this.createSingleElement('figure',div,'items__figure');
@@ -27,17 +27,31 @@ function ShopItem(id,name,price,discount,image) {
         const itemsPriceStandard = this.createSingleElement('h3',itemsPriceContainer,'items__price items__price--standard');
         const itemsPriceSale = this.createSingleElement('h3',itemsPriceContainer,'items__price items__price--sale');
         const itemsButton = this.createSingleElement('button',itemsDetails,'items__button');
+        
 
-        itemsItem.setAttribute('item',this.id);
         a.textContent = 'Edit'
         a.setAttribute('href','admin.html?id=' + this.id);
         itemsImage.setAttribute('src',this.image);
         itemsImage.setAttribute('alt',this.name);
         itemsName.textContent = this.name;
         itemsName.setAttribute('title',this.name);
-        itemsPriceStandard.textContent = this.price+'.00';
-        itemsPriceSale.textContent = Math.floor((1 - this.discount/100) * this.price) +'.00';
+        itemsPriceStandard.textContent = checkNum(this.price);
+        itemsPriceSale.textContent = checkNum((1 - this.discount/100) * this.price);
         itemsButton.textContent = 'ADD TO CART';
+    }
+}
+
+function checkNum(num) {
+    let testString = num.toString();
+    if (testString.indexOf('.') !== -1) {
+        let str = (Math.round(num * 100)).toString();
+        if (str.length >= 4) {
+            return str.slice(0, str.length-2) + '.' + str.slice(str.length-2);
+        } else {
+            return '0.' + str.slice(str.length-2);
+        }
+    } else {
+        return num + '.00'
     }
 }
 
