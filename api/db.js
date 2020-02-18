@@ -53,7 +53,7 @@ const adminDelete = (req) => {
     const id = Number(req.query.id);
     let result = false;
     itemArr.forEach((obj, i) => {
-        obj.id === id && itemArr.splice(i, 1) && (result = true)
+        obj.id === id && (itemArr.splice(i, 1)) && (result = true)
     })
     return result
 }
