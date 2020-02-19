@@ -11,7 +11,10 @@ const data = {};
 
 itemId = window.location.search.slice(4);
 isEditMode = !!itemId;
-isEditMode && (data.id = itemId) && sendRequest('GET', data, prepareEdit);
+if (isEditMode) {
+    data.id = itemId;
+    sendRequest('GET', data, prepareEdit);
+}
 
 function prepareEdit(res) {
     name.value = res.name;
