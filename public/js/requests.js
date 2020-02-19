@@ -14,7 +14,7 @@ function sendRequest(method, data, callback) {
                 let response = JSON.parse(xhr.response);
                 callback(response);   
             } else {
-                console.log('Error status: ' + xhr.status + '. ' + xhr.response);                
+                console.log('Error status is: ' + xhr.status + '. ' + xhr.response);                
             }
     }
 

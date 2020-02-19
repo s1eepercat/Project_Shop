@@ -20,7 +20,7 @@ app.get('/items', (req, res) => {
 });
 
 app.post('/items', (req, res) => {
-    const add = db.adminAdd(req);
+    const add = db.adminAdd(req.body);
     add ? res.status(200).json('Entry created') : res.status(404).json('Adding failed');
 });
 
@@ -30,6 +30,6 @@ app.put('/items', (req, res) => {
 });
 
 app.delete('/items', (req, res) => {
-    const del = db.adminDelete(req);
+    const del = db.adminDelete(req.query.id);
     del ? res.status(200).json('Entry deleted') : res.status(404).json('Item not found');
 })
