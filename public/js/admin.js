@@ -7,9 +7,11 @@ const checkbox = document.querySelector('#checkbox');
 const status_el = document.querySelector('#status');
 let deleteButton, isEditMode;
 
+const data = {};
+
 itemId = window.location.search.slice(4);
 isEditMode = !!itemId;
-isEditMode && sendRequest('GET', '/items?id=' + itemId, null, prepareEdit);
+isEditMode && (data.id = itemId) && sendRequest('GET', data, prepareEdit);
 
 function prepareEdit(res) {
     name.value = res.name;
@@ -25,10 +27,10 @@ function prepareEdit(res) {
 function createDeleteButton() {
     const button = document.createElement('button');
     button.classList.add('form__delete');
-    button.setAttribute('type','button');
+    button.setAttribute('type', 'button');
     button.textContent = 'Delete';
     button.onclick = function() {
-        sendRequest('DELETE', '/items?id=' + itemId, null, successCallback);
+        sendRequest('DELETE', data, successCallback);
     }
     form.appendChild(button);
 }
@@ -46,13 +48,13 @@ function successCallback() {
 
 function formHandle(e) {
     e.preventDefault();
-    const data = {
-        name: name.value,
-        price: price.value,
-        image: image.value,
-        discount: (checkbox.checked ? discount.value : 0) 
-    };
-    isEditMode && sendRequest('PUT', '/items?id=' + itemId, data, successCallback); 
-    !isEditMode && sendRequest('POST', '/items', data, successCallback);
+
+    data.name = name.value;
+    data.price = price.value;
+    data.image = image.value;
+    data.discount = (checkbox.checked ? discount.value : 0);
+
+    isEditMode && sendRequest('PUT', data, successCallback); 
+    !isEditMode && sendRequest('POST', data, successCallback);
     return false;
 }
