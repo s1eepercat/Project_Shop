@@ -31,8 +31,7 @@ createItem('Naruto Kun', 150, 'images/8.jpg');
 
 const adminSearch = (id) => itemArr.find(object => object.id === Number(id));
 
-const adminAdd = (req) => {
-    const data = req.body;
+const adminAdd = (data) => {
     createItem(data.name, Number(data.price), data.image, Number(data.discount)); 
     return true
 }
@@ -50,8 +49,8 @@ const adminUpdate = (req) => {
     return obj
 }
 
-const adminDelete = (req) => {
-    const id = Number(req.query.id);
+const adminDelete = (reqId) => {
+    const id = Number(reqId);
     let result = false;
     itemArr.forEach((obj, i) => {
         obj.id === id && (itemArr.splice(i, 1)) && (result = true)
