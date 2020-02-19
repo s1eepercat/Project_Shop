@@ -1,6 +1,10 @@
-function sendRequest(method, url, data, callback) {
+function sendRequest(method, data, callback) {
     let xhr = new XMLHttpRequest();
-    xhr.open(method, url, true);
+    if (data.id) {
+        xhr.open(method, '/items?id=' + data.id, true);
+    } else {
+        xhr.open(method, '/items', true);
+    }
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.onerror = function() {
         console.log('Request failed');
@@ -13,6 +17,6 @@ function sendRequest(method, url, data, callback) {
                 console.log('Error status: ' + xhr.status + '. ' + xhr.response);                
             }
     }
-    xhr.send(data !== null ? JSON.stringify(data) : null);
-}
 
+    xhr.send((method === 'POST' || 'PUT') ? JSON.stringify(data) : null);
+}

@@ -24,7 +24,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: bold;
 }
 
@@ -75,7 +75,7 @@ input:active, input:focus {
 
 @media only screen and (max-width: 400px) {
     html {
-      font-size: 46.875%; /* 7.5px */    
+      font-size: 46.875%; /* 7.5px */
     } 
 } 
 

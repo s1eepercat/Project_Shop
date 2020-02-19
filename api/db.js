@@ -29,9 +29,10 @@ createItem('Qualified Ninja', 100, 'images/9.jpg');
 createItem('Kawaii Ninja', 100, 'images/10.jpg', 40);
 createItem('Naruto Kun', 150, 'images/8.jpg');
 
-const adminSearch = (data) => itemArr.find(object => object.id === Number(data.id));
+const adminSearch = (id) => itemArr.find(object => object.id === Number(id));
 
-const adminAdd = (data) => {
+const adminAdd = (req) => {
+    const data = req.body;
     createItem(data.name, Number(data.price), data.image, Number(data.discount)); 
     return true
 }

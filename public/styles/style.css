@@ -304,12 +304,12 @@
 }
 
 .items__price-container {
-    width: 13rem;
     display: flex;
 }
 
 .items__price {
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .items__item > div > div > div > .items__price--sale {
@@ -319,9 +319,7 @@
 .items__item--sale > div > div > div > .items__price--standard {
     order: 0;
     font-weight: normal;
-    padding-top: .25rem;
     text-decoration: line-through;
-    font-size: 1.6rem;
     color: grey;
 }
 

@@ -9,9 +9,9 @@ app.use('/', express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/items', (req,res) => {
+app.get('/items', (req, res) => {
     if (req.query.id) {
-        const search = db.adminSearch(req.query);
+        const search = db.adminSearch(req.query.id);
         search ? res.status(200).json(search) : res.status(404).json('No entry found');
     } else {
         const itemArr = db.itemArr;
@@ -19,17 +19,17 @@ app.get('/items', (req,res) => {
     }
 });
 
-app.post('/items', (req,res) => {
-    const add = db.adminAdd(req.body);
+app.post('/items', (req, res) => {
+    const add = db.adminAdd(req);
     add ? res.status(200).json('Entry created') : res.status(404).json('Adding failed');
 });
 
-app.put('/items', (req,res) => {
+app.put('/items', (req, res) => {
     const update = db.adminUpdate(req);
     update ? res.status(200).json('Entry updated') : res.status(404).json('Could not update');
 });
 
-app.delete('/items', (req,res) => {
+app.delete('/items', (req, res) => {
     const del = db.adminDelete(req);
     del ? res.status(200).json('Entry deleted') : res.status(404).json('Item not found');
 })
