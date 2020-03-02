@@ -29,7 +29,7 @@ function ShopItem(id, name, price, discount, image) {
         
         a.textContent = 'Edit'
         a.setAttribute('href', 'admin.html?id=' + this.id);
-        itemsImage.setAttribute('src', this.image);
+        itemsImage.setAttribute('src', 'images' + this.image);
         itemsImage.setAttribute('alt', this.name);
         itemsName.textContent = this.name;
         itemsName.setAttribute('title', this.name);

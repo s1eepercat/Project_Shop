@@ -17,17 +17,17 @@ const createItem = (name, price, image, discount=0) => {
     itemArr.push(item);
 }
 
-createItem('Flying Ninja', 15, 'images/1.jpg', 20);
-createItem('Happy Ninja', 18, 'images/2.jpg', 30);
-createItem('Happy Ninja', 35, 'images/3.jpg');
-createItem('Ninja Silhouette', 20, 'images/4.jpg');
-createItem('Ninja Silhouette', 35, 'images/5.jpg');
-createItem('Patient Ninja', 35, 'images/6.jpg');
-createItem('Premium Quality', 20, 'images/7.jpg');
-createItem('Premium Quality', 15, 'images/8.jpg', 25);
-createItem('Qualified Ninja', 100, 'images/9.jpg');
-createItem('Kawaii Ninja', 100, 'images/10.jpg', 40);
-createItem('Naruto Kun', 150, 'images/8.jpg');
+createItem('Flying Ninja', 15, '/1.jpg', 20);
+createItem('Happy Ninja', 18, '/2.jpg', 30);
+createItem('Happy Ninja', 35, '/3.jpg');
+createItem('Ninja Silhouette', 20, '/4.jpg');
+createItem('Ninja Silhouette', 35, '/5.jpg');
+createItem('Patient Ninja', 35, '/6.jpg');
+createItem('Premium Quality', 20, '/7.jpg');
+createItem('Premium Quality', 15, '/8.jpg', 25);
+createItem('Qualified Ninja', 100, '/9.jpg');
+createItem('Kawaii Ninja', 100, '/10.jpg', 40);
+createItem('Naruto Kun', 150, '/8.jpg');
 
 const adminSearch = (id) => itemArr.find(object => object.id === Number(id));
 
